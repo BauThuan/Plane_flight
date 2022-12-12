@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import {useState , useRef, useEffect} from 'react'
 import {FaFacebookSquare , FaInstagramSquare,FaTwitterSquare,FaYoutube} from "react-icons/fa";
-import {SlPlane} from "react-icons/sl";
 import { ImEnvelop ,ImLocation2,ImPhoneHangUp} from "react-icons/im";
 
 
@@ -41,6 +40,10 @@ function App() {
     if(finds_2 === ''){
       setShow(true)
       return setMessage("Vui lòng nhập đầy đủ thông tin điểm đến !")
+    }
+    if(finds_1 == finds_2){
+      setShow(true)
+      return setMessage("Vui lòng không để điểm đến giống điểm đi !")
     }
     if(finds_3 === ''){
       setShow(true)
@@ -82,31 +85,64 @@ function App() {
             <div className="mimi">
               <div className="lab-atribute">
                 <lable>Từ:</lable>
-                <input 
+                <select 
                   className="inp-atribute" 
                   type="text" 
                   value={finds_1} 
                   onChange={e => {
                     setFinds_1(e.target.value)
                     setShow(false)
-                  }} />
+                  }}>
+                    <option></option>
+                    <option>Hà Nội</option>
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+                    <option>Quảng Ninh</option>
+                    <option>Hải Phòng</option>
+                    <option>Nghệ An</option>
+                    <option>Huế</option>
+                    <option>Khánh Hòa</option>
+                    <option>Lâm Đồng</option>
+                    <option>Bình Định</option>
+                    <option>Cần Thơ</option>
+                    <option>Kiên Giang</option>
+                    <option>Đồng Nai</option>
+
+                  </select>
               </div>
               <div className="lab-atribute">
                 <lable>Đến:</lable>
-                <input 
-                  className="inp-atribute" 
+
+                <select className="inp-atribute" 
                   type="text"  
                   value={finds_2} 
                   onChange={e => {
                     setShow(false)
                     setFinds_2(e.target.value)
-                  }}/>
+                  }}>
+                    <option></option>
+                    <option>Hà Nội</option>
+                    <option>Hồ Chí Minh</option>
+                    <option>Đà Nẵng</option>
+                    <option>Quảng Ninh</option>
+                    <option>Hải Phòng</option>
+                    <option>Nghệ An</option>
+                    <option>Huế</option>
+                    <option>Khánh Hòa</option>
+                    <option>Lâm Đồng</option>
+                    <option>Bình Định</option>
+                    <option>Cần Thơ</option>
+                    <option>Kiên Giang</option>
+                    <option>Đồng Nai</option>
+                  </select> 
+
+
               </div>
               <div className="lab-atribute">
                 <lable>Khởi hành:</lable>
                 <input 
-                  className="inp-atribute" 
-                  type="datetime-local" 
+                  className="inp-atribute-1" 
+                  type="date" 
                   value={finds_3} 
                   onChange={e => {
                     setShow(false)
